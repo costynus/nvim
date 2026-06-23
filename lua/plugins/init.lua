@@ -10,6 +10,9 @@ return {
         default = true,
       })
       require("nvim-tree").setup({
+        filters = {
+          git_ignored = false,
+        },
         view = {
           width = 30,
           side = "left",

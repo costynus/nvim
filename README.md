@@ -1,57 +1,91 @@
 # nvim
 
-Personal Neovim configuration powered by lazy.nvim.
+My personal Neovim configuration, tailored to my own workflow. Built on [lazy.nvim](https://github.com/folke/lazy.nvim). Used on macOS — other operating systems may require adjustments.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [LSP Servers](#lsp-servers)
+- [Structure](#structure)
+- [Plugins](#plugins)
+- [Keymaps](#keymaps)
 
 ## Installation
 
-### Neovim (0.11+ required)
+```bash
+git clone https://github.com/costynus/nvim.git ~/.config/nvim
+nvim
 ```
+
+## Dependencies
+
+### Neovim (0.11+ required)
+```bash
 brew install neovim
 ```
 
 ### Git
-```
+```bash
 brew install git
 ```
 
 ### ripgrep (for Telescope search)
-```
+```bash
 brew install ripgrep
 ```
 
 ### glow (for Markdown preview)
-```
+```bash
 brew install glow
 ```
 
 ### Python (recent version recommended)
-```
+```bash
 brew install python@3.14
 echo 'export PATH="/opt/homebrew/opt/python@3.14/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### LSP servers
+## LSP Servers
 
 Ruff (Python)
-```
+```bash
 uv tool install ruff
 ```
 
 Rust
-```
+```bash
 rustup component add rust-analyzer
 ```
 
 Go
-```
+```bash
 go install golang.org/x/tools/gopls@latest
 ```
 
 C/C++
-```
+```bash
 brew install llvm
 ```
+
+## Structure
+
+```
+~/.config/nvim
+├── init.lua          # entry point
+├── lua/
+│   ├── plugins/      # plugin configuration (lazy.nvim)
+│   └── config/       # general settings, keymaps, autocmds
+```
+
+## Plugins
+
+- [lazy.nvim](https://github.com/folke/lazy.nvim) — plugin manager
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) — file/text search
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) — git integration
+- Built-in LSP + `nvim-lspconfig`
+- Terminal integration
 
 ## Keymaps
 

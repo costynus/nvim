@@ -1,6 +1,6 @@
 # nvim
 
-My personal Neovim configuration, tailored to my own workflow. Built on [lazy.nvim](https://github.com/folke/lazy.nvim). Used on macOS — other operating systems may require adjustments.
+My personal Neovim configuration, tailored to my own workflow. Built on [lazy.nvim](https://github.com/folke/lazy.nvim). Tested on macOS and Linux.
 
 ## Table of Contents
 
@@ -20,37 +20,96 @@ nvim
 
 ## Dependencies
 
-### Neovim (0.11+ required)
+### macOS
+
+#### Neovim (0.11+ required)
+
 ```bash
 brew install neovim
 ```
 
-### Git
+#### Git
+
 ```bash
 brew install git
 ```
 
-### ripgrep (for Telescope search)
+#### ripgrep (for Telescope search)
+
 ```bash
 brew install ripgrep
 ```
 
-### tree-sitter CLI
+#### tree-sitter CLI
+
 ```bash
 brew install tree-sitter-cli
 ```
 
-### glow (for Markdown preview)
+#### glow (for Markdown preview)
+
 ```bash
 brew install glow
 ```
 
-### Python (recent version recommended)
+#### Python (recent version recommended)
+
 ```bash
 brew install python@3.14
 echo 'export PATH="/opt/homebrew/opt/python@3.14/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
+
+### Linux
+
+#### Debian / Ubuntu
+
+Install the base dependencies:
+
+```bash
+sudo apt update
+sudo apt install git ripgrep python3 python3-pip curl build-essential npm
+```
+
+The Neovim version in the default repositories may be older than 0.11. The
+official stable Snap package provides a current version:
+
+```bash
+sudo snap install nvim --classic
+```
+
+Install the remaining tools:
+
+```bash
+sudo npm install -g tree-sitter-cli
+sudo snap install glow
+```
+
+#### Fedora
+
+```bash
+sudo dnf install neovim git ripgrep python3 gcc gcc-c++ make npm golang
+sudo npm install -g tree-sitter-cli
+go install github.com/charmbracelet/glow/v2@latest
+```
+
+Make sure `~/go/bin` is in `PATH` so Neovim can find `glow`:
+
+```bash
+echo 'export PATH="$HOME/go/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+#### Arch Linux
+
+```bash
+sudo pacman -S neovim git ripgrep python base-devel npm glow
+sudo npm install -g tree-sitter-cli
+```
+
+After installing the dependencies, clone the configuration as described in
+[Installation](#installation), start Neovim, and let `lazy.nvim` install the
+plugins automatically.
 
 ## LSP Servers
 
@@ -71,7 +130,17 @@ go install golang.org/x/tools/gopls@latest
 
 C/C++
 ```bash
+# macOS
 brew install llvm
+
+# Debian / Ubuntu
+sudo apt install clangd
+
+# Fedora
+sudo dnf install clang-tools-extra
+
+# Arch Linux
+sudo pacman -S clang
 ```
 
 ## Structure

@@ -35,6 +35,11 @@ brew install git
 brew install ripgrep
 ```
 
+### tree-sitter CLI
+```bash
+brew install tree-sitter-cli
+```
+
 ### glow (for Markdown preview)
 ```bash
 brew install glow

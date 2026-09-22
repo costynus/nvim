@@ -14,6 +14,13 @@ return {
       "rcarriga/nvim-notify",
     },
     opts = {
+      lsp = {
+        signature = {
+          auto_open = {
+            enabled = false,
+          },
+        },
+      },
       cmdline = {
         view = "cmdline_popup",
       },

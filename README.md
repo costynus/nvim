@@ -179,6 +179,11 @@ sudo pacman -S clang
 - `[d` - Previous diagnostic
 - `]d` - Next diagnostic
 
+### Documentation (LSP)
+
+- `K` - Show information about the symbol under the cursor (Normal mode)
+- `<C-s>` - Show function signature at the cursor (Insert mode)
+
 ### Git (Gitsigns)
 
 - `]g` - Next git hunk

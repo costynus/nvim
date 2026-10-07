@@ -9,6 +9,7 @@ My personal Neovim configuration, tailored to my own workflow. Built on [lazy.nv
 - [LSP Servers](#lsp-servers)
 - [Structure](#structure)
 - [Plugins](#plugins)
+- [TODO comments](#todo-comments)
 - [Keymaps](#keymaps)
 
 ## Installation
@@ -158,8 +159,25 @@ sudo pacman -S clang
 - [lazy.nvim](https://github.com/folke/lazy.nvim) — plugin manager
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) — file/text search
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) — git integration
+- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) — highlight and search TODO comments
 - Built-in LSP + `nvim-lspconfig`
 - Terminal integration
+
+## TODO comments
+
+`todo-comments.nvim` highlights markers in code comments. Write a marker followed
+by a colon, for example:
+
+```lua
+-- TODO: add input validation
+-- FIX: handle an empty response
+-- NOTE: this path is used by the CLI
+```
+
+The default markers include `TODO`, `FIX`/`FIXME`/`BUG`, `HACK`, `WARN`,
+`PERF`, `NOTE`, and `TEST`. To see them across the project, use
+`:TodoQuickFix` (quickfix list) or `:TodoTelescope` (Telescope search).
+Press `<leader>ft` to open `:TodoTelescope`.
 
 ## Keymaps
 
@@ -172,6 +190,7 @@ sudo pacman -S clang
 - `<leader>ff` - Find file
 - `<leader>fg` - Search project with grep
 - `<leader>fw` - Search word under cursor or selection
+- `<leader>ft` - Find TODO comments
 
 ### Diagnostics (LSP/Ruff)
 
